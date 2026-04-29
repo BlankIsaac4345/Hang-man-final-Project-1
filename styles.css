@@ -1,0 +1,13 @@
+body {
+    background-color: gray;
+}
+
+#word-display {
+    display: flex;
+}
+
+.letter-box {
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid black;
+}
