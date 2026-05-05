@@ -1,35 +1,52 @@
 console.log("Jarvis Online")
 
-let mysteryWord = "LAMBORGHINI";
+let mysteryWord = "BARCELONA";
+let gameWon = false;
+let wrongGuesses = 0;
+let maxWrongGuesses = 6;
 
 function checkGuess() {
-    let guessedLetter = document.getElementById("letter-input").value;
-    guessedLetter = guessedLetter.toUpperCase();
-    if (mysteryWord.includes(guessedLetter)) {
-        for (let i = 0; i < mysteryWord.length; i++) {
-        if (mysteryWord[i] === guessedLetter) {
-            document.getElementById("box" + i).innerText = guessedLetter;
-        }
+  let guessedLetter = document.getElementById("letter-input").value;
+  guessedLetter = guessedLetter.toUpperCase();
+  
+  if (mysteryWord.includes(guessedLetter)) {
+    for (let i = 0; i < mysteryWord.length; i++) {
+      if (mysteryWord[i] === guessedLetter) {
+        document.getElementById("box" + i).innerText = guessedLetter;
+      }
     }
-    } else {
-        document.getElementById("wrong-list").innerText += guessedLetter + " ";
-    }
-    document.getElementById("letter-input").value = "";
-    checkForWin();
+  } else {
+    document.getElementById("wrong-list").innerText += guessedLetter + " ";
+    wrongGuesses = wrongGuesses + 1;  // Count wrong guesses
+    checkForLose();  // Check if player lost
+  }
+  
+  document.getElementById("letter-input").value = "";
+  checkForWin();
 }
 
 function checkForWin() {
-    let letterBoxes = document.getElementsByClassName("letter-box");
-    let filledBoxes = 0;
-    
-    for (let i = 0; i < letterBoxes.length; i++) {
-        if (letterBoxes[i].innerText !== "") {
-            filledBoxes = filledBoxes + 1;
-        }
+  let allLettersGuessed = true;
+
+  for (let i = 0; i < mysteryWord.length; i++) {
+    let box = document.getElementById("box" + i);
+    if (box.innerText === "_") {
+      allLettersGuessed = false;
+      break;
     }
-    
-    if (filledBoxes === 11 && gameWon === true) {
-        alert("You won! Great job!");
-        gameWon = false;
-    }
+  }
+
+  if (allLettersGuessed && gameWon === false) {
+    alert("You won! Great job!");
+    gameWon = true;
+  }
+}
+
+function checkForLose() {
+  console.log("Wrong guesses:", wrongGuesses);
+  console.log("Max allowed:", maxWrongGuesses);
+
+  if (wrongGuesses >= maxWrongGuesses) {
+    alert("You lost! The word was: " + mysteryWord);
+  }
 }
