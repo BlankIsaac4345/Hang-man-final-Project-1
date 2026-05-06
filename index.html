@@ -7,18 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hangman guessing game</h1>
-    <div id="word-display">
-    <div class="letter-box" id="box0">_</div>
-    <div class="letter-box" id="box1">_</div>
-    <div class="letter-box" id="box2">_</div>
-    <div class="letter-box" id="box3">_</div>
-    <div class="letter-box" id="box4">_</div>
-    <div class="letter-box" id="box5">_</div>
-    <div class="letter-box" id="box6">_</div>
-    <div class="letter-box" id="box7">_</div>
-    <div class="letter-box" id="box8">_</div>
-    </div>
+<h1>Hangman guessing game</h1>
+<div id="hangman-drawing">
+    <img id="hangman-part-1" src="" class="hangman-part">
+    <img id="hangman-part-2" src="" class="hangman-part">
+    <img id="hangman-part-3" src="" class="hangman-part">
+    <img id="hangman-part-4" src="" class="hangman-part">
+    <img id="hangman-part-5" src="" class="hangman-part">
+    <img id="hangman-part-6" src="" class="hangman-part">
+</div>
+<div id="instructions">
+    <p>Guess the mystery word one letter at a time!</p>
+    <p>Theme: <span id="theme">Spanish City</span></p>
+    <p>You have <span id="guesses-left">6</span> wrong guesses remaining.</p>
+    <p>Level: <span id="progress">1/5</span></p>
+</div>
+<div id="word-display">
+</div>
     <div>
     <input type="text" id="letter-input" placeholder="Enter a letter">
     <button onclick="checkGuess()">Guess</button>
