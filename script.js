@@ -1,10 +1,10 @@
 console.log("Jarvis Online")
 
 let wordList = [
-  {word: "BARCELONA", theme: "Spanish City"},
-  {word: "LAMBORGHINI", theme: "Luxury Car Brand"},
-  {word: "JAVASCRIPT", theme: "Programming Language"},
-  {word: "ANTIESTABLISHMENTARIANISM", theme: "One of the worlds longest words"},
+  {word: "MADRID", theme: "Spanish City"},
+  {word: "FERRARI", theme: "Luxury Car Brand"},
+  {word: "HTML", theme: "Programming Language"},
+  {word: "HIPPOPOTAMUSE", theme: "Exotic Animal"},
   {word: "SUPERCALIFRAGILISTICEXPIALIDOCIOUS", theme: "One of the worlds longest words"}
 ];
 let currentWordIndex = 0;
